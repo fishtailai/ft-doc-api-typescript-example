@@ -1,0 +1,24 @@
+{
+  "name": "typescript-example",
+  "version": "0.0.1",
+  "description": "example typescript project using the Fishtail API",
+  "main": "index.js",
+  "scripts": {
+    "server": "esrun server.ts",
+    "client": "esrun client.ts"
+  },
+  "keywords": [],
+  "author": "Marc Held",
+  "license": "MIT",
+  "dependencies": {
+    "@digitak/esrun": "^3.2.25",
+    "axios": "^1.5.1",
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.18",
+    "@types/node": "^20.8.2"
+  }
+}
