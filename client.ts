@@ -3,6 +3,7 @@ import fs from "fs";
 
 const fishtailEndpoint = "https://api.fishtail.app/v1/";
 const apiKey = process.env.FISHTAIL_API_KEY;
+const webhookUrl = process.env.WEBHOOK_URL;
 
 ///////////////////////////////////////////////////////////////////////////////
 // 1) create an API client that uses your API key
@@ -34,7 +35,7 @@ console.log(webhooks); // => []
 // want to use your own server here :)
 const { data: newWebhook } = await client.post("/webhooks", {
   webhook: {
-    url: "https://mheld.tunnelto.dev/incoming-webhook",
+    url: `${webhookUrl}/incoming-webhook`,
     events: ["documents.digitized"],
   },
 });
@@ -59,7 +60,7 @@ let { data: documents } = await client.get("/documents");
 console.log(documents); // => []
 
 // read in file blob
-const fileBlob = fs.createReadStream("../test-files/IMG_20230906_165753.jpg");
+const fileBlob = fs.createReadStream("./test-files/stock-photo.jpeg");
 
 // note that we are using the postForm method here
 // POST /documents takes a multipart/form-data request
